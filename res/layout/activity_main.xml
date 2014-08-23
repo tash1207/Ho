@@ -1,0 +1,35 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/red" >
+
+    <EditText
+        android:id="@+id/add"
+        style="@style/ho_text"
+        android:background="@drawable/selector1"
+        android:clickable="true"
+        android:hint="@string/add"
+        android:inputType="textCapCharacters"
+        android:onClick="add"
+        android:singleLine="true" />
+
+    <ListView
+        android:id="@+id/lvw_users"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/add" />
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="8dp"
+        android:background="@drawable/circle"
+        android:clickable="true"
+        android:contentDescription="@string/settings"
+        android:onClick="settings"
+        android:src="@drawable/ic_settings" />
+
+</RelativeLayout>

@@ -1,0 +1,14 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <style name="ho_text">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">85dp</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textColorHint">@android:color/white</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+</resources>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/red"
+    android:orientation="vertical" >
+
+    <TextView
+        style="@style/ho_text"
+        android:background="@color/color1"
+        android:text="@string/what_is_ho_text1"
+        android:textSize="16sp" />
+
+    <TextView
+        style="@style/ho_text"
+        android:background="@color/color2"
+        android:text="@string/what_is_ho_text2"
+        android:textSize="16sp" />
+
+    <TextView
+        style="@style/ho_text"
+        android:background="@color/color3"
+        android:text="@string/what_is_ho_text3"
+        android:textSize="16sp" />
+
+    <TextView
+        style="@style/ho_text"
+        android:background="@drawable/selector1"
+        android:clickable="true"
+        android:onClick="done"
+        android:text="@string/done" />
+
+</LinearLayout>

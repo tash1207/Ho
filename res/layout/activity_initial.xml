@@ -1,0 +1,29 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/red"
+    android:orientation="vertical" >
+
+    <TextView
+        style="@style/ho_text"
+        android:background="@drawable/selector1"
+        android:clickable="true"
+        android:onClick="signup"
+        android:text="@string/signup" />
+
+    <TextView
+        style="@style/ho_text"
+        android:background="@drawable/selector2"
+        android:clickable="true"
+        android:onClick="login"
+        android:text="@string/login" />
+
+    <TextView
+        style="@style/ho_text"
+        android:background="@drawable/selector3"
+        android:clickable="true"
+        android:onClick="what_is_ho"
+        android:text="@string/what_is_ho" />
+
+</LinearLayout>

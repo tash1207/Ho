@@ -1,0 +1,30 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/red"
+    android:orientation="vertical" >
+
+    <EditText
+        android:id="@+id/edit_username"
+        style="@style/ho_text"
+        android:background="@drawable/selector1"
+        android:hint="@string/username"
+        android:inputType="textCapCharacters"
+        android:textSize="20sp" />
+
+    <EditText
+        style="@style/ho_text"
+        android:background="@drawable/selector2"
+        android:hint="@string/password"
+        android:inputType="textCapCharacters"
+        android:textSize="20sp" />
+
+    <TextView
+        style="@style/ho_text"
+        android:background="@drawable/selector3"
+        android:clickable="true"
+        android:onClick="login"
+        android:text="@string/tap_to_login" />
+
+</LinearLayout>
