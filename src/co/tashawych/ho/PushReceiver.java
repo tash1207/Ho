@@ -20,6 +20,10 @@ public class PushReceiver extends BroadcastReceiver {
 			try {
 				JSONObject json = new JSONObject(intent.getExtras().getString("com.parse.Data"));
 				String username = json.getString("username");
+				String title = context.getString(R.string.app_name);
+				if (json.has("title_text")) {
+					title = json.getString("title_text");
+				}
 				
 				Uri sound = Uri.parse("android.resource://co.tashawych.ho/raw/ho");
 				
@@ -37,7 +41,7 @@ public class PushReceiver extends BroadcastReceiver {
 			            .setSmallIcon(R.drawable.ic_launcher)
 			            .setLights(0xffff0000, 300, 1000)
 			            .setVibrate(new long[]{0, 200, 250, 200})
-			            .setContentTitle("Ho")
+			            .setContentTitle(title)
 			            .setContentText("From " + username);
 				if (sound_on) builder.setSound(sound);
 								

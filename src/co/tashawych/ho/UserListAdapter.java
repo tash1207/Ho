@@ -57,7 +57,7 @@ public class UserListAdapter extends ArrayAdapter<String> {
 				Log.d("UserListAdapter", "onClick");
 				ParsePush push = new ParsePush();
 				String user_to_ho = users.get(position);
-				if (user_to_ho.equals("HO YOURSELF")) {
+				if (user_to_ho.equals(context.getString(R.string.ho_yourself))) {
 					user_to_ho = username;
 				}
 				push.setChannel(user_to_ho);
@@ -67,6 +67,7 @@ public class UserListAdapter extends ArrayAdapter<String> {
 					data.put("action", "co.tashawych.ho.SEND_HO");
 					data.put("username", username);
 					data.put("id", num_hos);
+					data.put("title_text", context.getString(R.string.app_name));
 					push.setData(data);
 				} catch (JSONException e) {
 					e.printStackTrace();
@@ -84,7 +85,7 @@ public class UserListAdapter extends ArrayAdapter<String> {
 			@Override
 			public boolean onLongClick(View v) {
 				String user_to_delete = users.get(position);
-				if (user_to_delete.equals("HO YOURSELF")) {
+				if (user_to_delete.equals(context.getString(R.string.ho_yourself))) {
 					return false;
 				}
 				// 1. Instantiate an AlertDialog.Builder with its constructor

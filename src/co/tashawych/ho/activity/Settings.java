@@ -1,5 +1,7 @@
 package co.tashawych.ho.activity;
 
+import java.util.Locale;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -26,7 +28,8 @@ public class Settings extends Activity {
 		TextView current_user = (TextView) findViewById(R.id.current_user);
 		current_user.setText("USER:" + username);
 		TextView num_hos = (TextView) findViewById(R.id.num_hos);
-		num_hos.setText("HO'S:" + hos);
+		String app_name = getString(R.string.app_name).toUpperCase(Locale.US);
+		num_hos.setText(app_name + "'S:" + hos);
 		TextView toggle_sound = (TextView) findViewById(R.id.sound);
 		String on_or_off = sound ? "OFF" : "ON";
 		toggle_sound.setText("TURN SOUND " + on_or_off);

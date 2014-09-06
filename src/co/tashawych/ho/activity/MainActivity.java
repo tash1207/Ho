@@ -74,7 +74,7 @@ public class MainActivity extends Activity {
 	
 	public static void updateUserList(Context context) {
 		ArrayList<String> users = DBHelper.getHelper(context).getUsers();
-		users.add(0, "HO YOURSELF");
+		users.add(0, context.getString(R.string.ho_yourself));
 		
 		String username = context.getSharedPreferences("ho", 0).getString("username", "");
 		int hos = context.getSharedPreferences("ho", 0).getInt("hos", 0);
