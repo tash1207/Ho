@@ -31,3 +31,9 @@ proguard-project.txt
 # Mac
 
 .DS_Store
+
+# Android Studio
+
+build/
+.idea
+*.iml
