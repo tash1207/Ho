@@ -20,97 +20,97 @@ import java.util.ArrayList;
 import co.tashawych.ho.activity.MainActivity;
 
 public class UserListAdapter extends ArrayAdapter<String> {
-	private Context context;
-	private ArrayList<String> users;
-	private String username;
-	private int num_hos;
+    private Context context;
+    private ArrayList<String> users;
+    private String username;
+    private int num_hos;
 
-	public UserListAdapter(Context context, int layout, ArrayList<String> users, String username, int num_hos) {
-		super(context, layout, users);
-		this.context = context;
-		this.users = users;
-		this.username = username;
-		this.num_hos = num_hos;
-	}
+    public UserListAdapter(Context context, int layout, ArrayList<String> users, String username, int num_hos) {
+        super(context, layout, users);
+        this.context = context;
+        this.users = users;
+        this.username = username;
+        this.num_hos = num_hos;
+    }
 
-	@Override
-	public View getView(final int position, View convertView, ViewGroup parent) {
-		LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		View userView = layoutInflater.inflate(R.layout.user_view, parent, false);
+    @Override
+    public View getView(final int position, View convertView, ViewGroup parent) {
+        LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View userView = layoutInflater.inflate(R.layout.user_view, parent, false);
 
-		TextView txt_user_to_ho = (TextView) userView.findViewById(R.id.username);
-		txt_user_to_ho.setText(users.get(position));
+        TextView txt_user_to_ho = (TextView) userView.findViewById(R.id.username);
+        txt_user_to_ho.setText(users.get(position));
 
-		if (position % 3 == 0) {
-			userView.setBackgroundResource(R.drawable.selector2);
-		}
-		else if (position % 3 == 1) {
-			userView.setBackgroundResource(R.drawable.selector3);
-		}
-		else {
-			userView.setBackgroundResource(R.drawable.selector1);
-		}
+        if (position % 3 == 0) {
+            userView.setBackgroundResource(R.drawable.selector2);
+        } else if (position % 3 == 1) {
+            userView.setBackgroundResource(R.drawable.selector3);
+        } else {
+            userView.setBackgroundResource(R.drawable.selector1);
+        }
 
-		userView.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				Log.d("UserListAdapter", "onClick");
-				ParsePush push = new ParsePush();
-				String user_to_ho = users.get(position);
-				if (user_to_ho.equals(context.getString(R.string.ho_yourself))) {
-					user_to_ho = username;
-				}
-				push.setChannel(user_to_ho);
+        userView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("UserListAdapter", "onClick");
+                ParsePush push = new ParsePush();
+                String user_to_ho = users.get(position);
+                if (user_to_ho.equals(context.getString(R.string.ho_yourself))) {
+                    user_to_ho = username;
+                }
+                push.setChannel(user_to_ho);
 
-				try {
-					JSONObject data = new JSONObject();
-					data.put("action", "co.tashawych.ho.SEND_HO");
-					data.put("username", username);
-					data.put("id", num_hos);
-					push.setData(data);
-				} catch (JSONException e) {
-					e.printStackTrace();
-					push.setMessage("From " + username);
-				}
-				push.sendInBackground();
+                try {
+                    JSONObject data = new JSONObject();
+                    data.put("action", "co.tashawych.ho.SEND_HO");
+                    data.put("username", username);
+                    data.put("id", num_hos);
+                    push.setData(data);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    push.setMessage("From " + username);
+                }
+                push.sendInBackground();
 
-				context.getSharedPreferences("ho", 0).edit().putInt("hos", ++num_hos).commit();
-				DBHelper.getHelper(context).increaseHos(user_to_ho);
-			}
-		});
+                context.getSharedPreferences("ho", 0).edit().putInt("hos", ++num_hos).commit();
+                DBHelper.getHelper(context).increaseHos(user_to_ho);
+            }
+        });
 
-		userView.setOnLongClickListener(new View.OnLongClickListener() {
+        userView.setOnLongClickListener(new View.OnLongClickListener() {
 
-			@Override
-			public boolean onLongClick(View v) {
-				String user_to_delete = users.get(position);
-				if (user_to_delete.equals(context.getString(R.string.ho_yourself))) {
-					return false;
-				}
-				// 1. Instantiate an AlertDialog.Builder with its constructor
-				AlertDialog.Builder builder = new AlertDialog.Builder(context);
+            @Override
+            public boolean onLongClick(View v) {
+                String user_to_delete = users.get(position);
+                if (user_to_delete.equals(context.getString(R.string.ho_yourself))) {
+                    return false;
+                }
+                // 1. Instantiate an AlertDialog.Builder with its constructor
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
-				// 2. Chain together various setter methods to set the dialog characteristics
-				builder.setMessage(
-						"Are you sure you want to delete " + user_to_delete + "?")
-						.setTitle("Delete User")
-						.setNegativeButton("NO", new DialogInterface.OnClickListener() {
-							@Override
-							public void onClick(DialogInterface dialog, int which) {
-								dialog.dismiss();
-							}})
-						.setPositiveButton("YES", new DialogInterface.OnClickListener() {
-							@Override
-							public void onClick(DialogInterface dialog, int which) {
-								DBHelper.getHelper(context).deleteUser(users.get(position));
-								MainActivity.updateUserList(context);
-								dialog.dismiss();
-							}});
+                // 2. Chain together various setter methods to set the dialog characteristics
+                builder.setMessage(
+                        "Are you sure you want to delete " + user_to_delete + "?")
+                        .setTitle("Delete User")
+                        .setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        })
+                        .setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                DBHelper.getHelper(context).deleteUser(users.get(position));
+                                MainActivity.updateUserList(context);
+                                dialog.dismiss();
+                            }
+                        });
 
-				// 3. Get the AlertDialog from create()
-				AlertDialog dialog = builder.create();
-				dialog.show();
-				/*
+                // 3. Get the AlertDialog from create()
+                AlertDialog dialog = builder.create();
+                dialog.show();
+                /*
 				
 				AlertDialog.Builder builder = new AlertDialog.Builder(context);
 			    LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -180,10 +180,10 @@ public class UserListAdapter extends ArrayAdapter<String> {
 		    	
 		    	dialog.show();
 		    	*/
-				return true;
-			}
-		});
-		return userView;
-	}
+                return true;
+            }
+        });
+        return userView;
+    }
 
 }

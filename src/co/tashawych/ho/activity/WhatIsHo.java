@@ -8,14 +8,14 @@ import co.tashawych.ho.R;
 
 public class WhatIsHo extends Activity {
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_what_is_ho);
-	}
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_what_is_ho);
+    }
 
-	public void done(View v) {
-		finish();
-	}
+    public void done(View v) {
+        finish();
+    }
 
 }
