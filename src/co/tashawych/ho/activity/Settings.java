@@ -5,9 +5,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
-import co.tashawych.ho.R;
 
 import com.parse.PushService;
+
+import co.tashawych.ho.R;
 
 public class Settings extends Activity {
 	String username;

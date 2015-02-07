@@ -1,12 +1,12 @@
 package co.tashawych.ho;
 
-import java.util.ArrayList;
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import java.util.ArrayList;
 
 public class DBHelper extends SQLiteOpenHelper {
 	public final static String DB_NAME = "ho";

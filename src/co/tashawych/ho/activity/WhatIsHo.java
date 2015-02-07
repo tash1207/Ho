@@ -3,6 +3,7 @@ package co.tashawych.ho.activity;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+
 import co.tashawych.ho.R;
 
 public class WhatIsHo extends Activity {

@@ -7,9 +7,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
-import co.tashawych.ho.R;
 
 import com.parse.PushService;
+
+import co.tashawych.ho.R;
 
 public class Signup extends Activity {
 

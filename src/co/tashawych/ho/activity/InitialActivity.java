@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
 import co.tashawych.ho.R;
 
 public class InitialActivity extends Activity {

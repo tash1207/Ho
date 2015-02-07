@@ -1,10 +1,5 @@
 package co.tashawych.ho;
 
-import java.util.ArrayList;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -15,9 +10,14 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import co.tashawych.ho.activity.MainActivity;
-
 import com.parse.ParsePush;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+
+import co.tashawych.ho.activity.MainActivity;
 
 public class UserListAdapter extends ArrayAdapter<String> {
 	private Context context;
@@ -32,15 +32,15 @@ public class UserListAdapter extends ArrayAdapter<String> {
 		this.username = username;
 		this.num_hos = num_hos;
 	}
-	
+
 	@Override
 	public View getView(final int position, View convertView, ViewGroup parent) {
 		LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		View userView = layoutInflater.inflate(R.layout.user_view, parent, false);
-		
+
 		TextView txt_user_to_ho = (TextView) userView.findViewById(R.id.username);
 		txt_user_to_ho.setText(users.get(position));
-		
+
 		if (position % 3 == 0) {
 			userView.setBackgroundResource(R.drawable.selector2);
 		}
@@ -50,18 +50,18 @@ public class UserListAdapter extends ArrayAdapter<String> {
 		else {
 			userView.setBackgroundResource(R.drawable.selector1);
 		}
-		
+
 		userView.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				Log.d("UserListAdapter", "onClick");
 				ParsePush push = new ParsePush();
 				String user_to_ho = users.get(position);
-				if (user_to_ho.equals("HO YOURSELF")) {
+				if (user_to_ho.equals(context.getString(R.string.ho_yourself))) {
 					user_to_ho = username;
 				}
 				push.setChannel(user_to_ho);
-				
+
 				try {
 					JSONObject data = new JSONObject();
 					data.put("action", "co.tashawych.ho.SEND_HO");
@@ -78,13 +78,13 @@ public class UserListAdapter extends ArrayAdapter<String> {
 				DBHelper.getHelper(context).increaseHos(user_to_ho);
 			}
 		});
-		
+
 		userView.setOnLongClickListener(new View.OnLongClickListener() {
-			
+
 			@Override
 			public boolean onLongClick(View v) {
 				String user_to_delete = users.get(position);
-				if (user_to_delete.equals("HO YOURSELF")) {
+				if (user_to_delete.equals(context.getString(R.string.ho_yourself))) {
 					return false;
 				}
 				// 1. Instantiate an AlertDialog.Builder with its constructor

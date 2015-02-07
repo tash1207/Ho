@@ -1,7 +1,5 @@
 package co.tashawych.ho.activity;
 
-import com.parse.PushService;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -9,6 +7,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.parse.PushService;
+
 import co.tashawych.ho.R;
 
 public class Login extends Activity {

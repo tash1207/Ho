@@ -1,7 +1,5 @@
 package co.tashawych.ho.activity;
 
-import java.util.ArrayList;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -14,6 +12,9 @@ import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+
 import co.tashawych.ho.DBHelper;
 import co.tashawych.ho.R;
 import co.tashawych.ho.UserListAdapter;
@@ -74,7 +75,7 @@ public class MainActivity extends Activity {
 	
 	public static void updateUserList(Context context) {
 		ArrayList<String> users = DBHelper.getHelper(context).getUsers();
-		users.add(0, "HO YOURSELF");
+		users.add(0, context.getString(R.string.ho_yourself));
 		
 		String username = context.getSharedPreferences("ho", 0).getString("username", "");
 		int hos = context.getSharedPreferences("ho", 0).getInt("hos", 0);

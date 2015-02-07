@@ -1,10 +1,10 @@
 package co.tashawych.ho;
 
-import co.tashawych.ho.activity.InitialActivity;
-
 import com.parse.Parse;
 import com.parse.ParseInstallation;
 import com.parse.PushService;
+
+import co.tashawych.ho.activity.InitialActivity;
 
 public class Application extends android.app.Application {
 
