@@ -59,6 +59,9 @@
             android:name=".activity.Settings"
             android:screenOrientation="portrait" >
         </activity>
+        <activity
+            android:name=".activity.SendHo" >
+        </activity>
 
         <service android:name="com.parse.PushService" />
 
