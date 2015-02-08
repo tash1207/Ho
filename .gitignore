@@ -20,7 +20,6 @@ project.properties
 proguard-project.txt
 
 # Eclipse
-
 .project
 .metadata
 .classpath
@@ -29,11 +28,12 @@ proguard-project.txt
 .buildpath
 
 # Mac
-
 .DS_Store
 
 # Android Studio
-
 build/
 .idea
 *.iml
+
+# Top secret files
+secret.xml

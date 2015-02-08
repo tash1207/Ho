@@ -9,8 +9,7 @@ import co.tashawych.ho.activity.InitialActivity;
 public class Application extends android.app.Application {
 
     public void onCreate() {
-        Parse.initialize(this, "ce4aFxEKMnJvkIRPXCfOwpN6sMIwTZyGoEzfyUuI",
-                "dwOLdihNIXvYC3MxFwUxniSl7fjMOXhNrlLLJAc6");
+        Parse.initialize(this, getString(R.string.application_id), getString(R.string.client_key));
         PushService.setDefaultPushCallback(this, InitialActivity.class);
         ParseInstallation.getCurrentInstallation().saveInBackground();
     }
