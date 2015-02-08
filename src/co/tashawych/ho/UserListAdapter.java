@@ -3,7 +3,6 @@ package co.tashawych.ho;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,7 +51,6 @@ public class UserListAdapter extends ArrayAdapter<String> {
         userView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("UserListAdapter", "onClick");
                 ParsePush push = new ParsePush();
                 String user_to_ho = users.get(position);
                 if (user_to_ho.equals(context.getString(R.string.ho_yourself))) {
