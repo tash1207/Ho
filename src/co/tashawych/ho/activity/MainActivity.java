@@ -57,14 +57,14 @@ public class MainActivity extends Activity {
                     String text = add.getText().toString();
                     InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
                     imm.hideSoftInputFromWindow(add.getWindowToken(), 0);
-                    if (text.length() >= 3 && text.length() <= 20) {
+                    if (text.length() < 3 && text.length() > 20) {
+                        Toast.makeText(MainActivity.this, getString(R.string.warning_invalid_length),
+                                Toast.LENGTH_SHORT).show();
+                    } else {
                         DBHelper.getHelper(MainActivity.this).insertUser(text.trim());
                         updateUserList(MainActivity.this);
                         add.setText("");
                         add.setHint("+");
-                    } else {
-                        Toast.makeText(MainActivity.this, "Usernames are always between 3-20 characters",
-                                Toast.LENGTH_SHORT).show();
                     }
                 }
                 return false;

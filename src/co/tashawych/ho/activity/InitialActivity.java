@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import co.tashawych.ho.R;
 
@@ -30,8 +31,11 @@ public class InitialActivity extends Activity {
     }
 
     public void login(View view) {
+        Toast.makeText(this, getString(R.string.coming_soon), Toast.LENGTH_SHORT).show();
+        /*
         Intent login = new Intent(this, Login.class);
         startActivity(login);
+        */
     }
 
     public void what_is_ho(View view) {

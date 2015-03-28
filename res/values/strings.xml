@@ -6,6 +6,10 @@
     <string name="signup">SIGNUP</string>
     <string name="login">LOGIN</string>
     <string name="what_is_ho">WHAT IS HO?</string>
+
+    <string name="warning_invalid_length">Please enter a username between 3-20 characters</string>
+    <string name="warning_invalid_chars">Please only use alphanumeric characters in your username</string>
+    <string name="coming_soon">Coming soon</string>
     
     <string name="choose_username">CHOOSE USERNAME</string>
     <string name="choose_password">CHOOSE PASSWORD</string>
