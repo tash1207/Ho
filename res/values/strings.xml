@@ -9,7 +9,7 @@
 
     <string name="warning_invalid_length">Please enter a username between 3-20 characters</string>
     <string name="warning_invalid_chars">Please only use alphanumeric characters in your username</string>
-    <string name="coming_soon">Coming soon</string>
+    <string name="warning_password_length">Please enter a password at least 3 characters long</string>
     
     <string name="choose_username">CHOOSE USERNAME</string>
     <string name="choose_password">CHOOSE PASSWORD</string>

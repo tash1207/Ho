@@ -14,11 +14,13 @@
         android:textSize="20sp" />
 
     <EditText
+        android:id="@+id/edit_password"
         style="@style/ho_text"
         android:background="@drawable/selector2"
         android:hint="@string/password"
-        android:inputType="textCapCharacters"
-        android:textSize="20sp" />
+        android:inputType="textPassword"
+        android:textSize="20sp"
+        android:fontFamily="sans-serif" />
 
     <TextView
         style="@style/ho_text"

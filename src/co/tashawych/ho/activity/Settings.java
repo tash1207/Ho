@@ -6,7 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import com.parse.PushService;
+import com.parse.ParsePush;
+import com.parse.ParseUser;
 
 import co.tashawych.ho.R;
 
@@ -48,7 +49,8 @@ public class Settings extends Activity {
     }
 
     public void logout(View v) {
-        PushService.unsubscribe(this, username);
+        ParseUser.logOut();
+        ParsePush.unsubscribeInBackground(username);
         getSharedPreferences("ho", 0).edit().putString("username", "").commit();
 
         Intent initial = new Intent(this, InitialActivity.class);
